@@ -287,6 +287,7 @@ public class Walkthrough {
     HorizontalPanel buttonPanel = new HorizontalPanel();
     buttonPanel.setHorizontalAlignment(HorizontalPanel.ALIGN_CENTER);
     buttonPanel.add(closeButton);
+    buttonPanel.add(hintButton);
     buttonPanel.add(backButton);
     buttonPanel.add(hintButton);
     buttonPanel.add(nextButton);

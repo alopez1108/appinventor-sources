@@ -1,3 +1,18 @@
+/* Example Step Object */
+// step = function(text, validate, url){
+// 	this.text=text;
+// 	this.validate=validate;
+//  this.top = top;
+//  this.left = left;
+//  this.hint = hint;
+//  this.hintNeeded = boolean;
+// }
+
+
+/* Tutorial Object */
+
+/*Every tutorial will be hardcoded into a tutorial object which can easily be run */
+
 var Tutorial_DigitalDoodle = {
     title: "Digital Doodle",
     difficulty: "easy",
@@ -7,37 +22,68 @@ var Tutorial_DigitalDoodle = {
             validate: function (formName) {
                 return true;
             },
-            url: '',
+            top: 200,
+		    left: 340,
+			hint: function(formName){},
+            hintNeeded: function(formName){
+                return false;
+            },
         },
         {
             text: 'To allow the Canvas to fill the whole screen, verify that the Screen1 property "Scrollable" is unchecked (the box is near the bottom of the Properties pane).',
             validate: function (formName) {
                 return true;
             },
-            url: "",
             top: 1,
-            left: 233
+            left: 233,
+			hint: function(formName){
+			    Tutorial.highlight("ode-Box-content", 6);
+			},
+            hintNeeded: function(formName){
+                return true;
+            },
         },
         {
             text: "From the Drawing and Animation drawer in the palette on the left, drag out a Canvas component and drop it onto the viewer.",
             validate: function (formName) {
                 return Tutorial.testForComponent("Canvas");
             },
-            url: "",
+            top: 1,
+            left: 233,
+			hint: function(formName){
+			    Tutorial.highlight("ode-Box-content", 1);
+			},
+            hintNeeded: function(formName){
+                return true;
+            },
         },
         {
             text: 'Make sure the Canvas component is selected in the Components list so that its properties show up in the Properties Pane.<br><br>Set the Height and Width properties to "Fill Parent".',
             validate: function (formName) {
                 return true;
             },
-            url: "",
+            top: 1,
+            left: 233,
+			hint: function(formName){
+			    Tutorial.highlight("ode-Box-content", 6);
+			},
+            hintNeeded: function(formName){
+                return true;
+            },
         },
         {
             text: "Let's add some behavior to our app! Open the Blocks editor.",
             validate: function (formName) {
                 return BlocklyPanel_InBlocksView();
             },
-            url: '',
+            top: 1,
+            left: 233,
+			hint: function(formName){
+			    Tutorial.highlight("ode-TextButton", 7);
+			},
+            hintNeeded: function(formName){
+                return true;
+            },
         },
         {
             text: "In the Blocks list on the left, click Canvas1 to open the Canvas1 blocks drawer. Pull out the <b>when Canvas1.Dragged</b> event.",
@@ -46,12 +92,17 @@ var Tutorial_DigitalDoodle = {
                     return block.eventName === "Dragged" && block.typeName === "Canvas";
                 });
             },
-            url: '',
             top: 1,
-            left: 521
+            left: 521,
+			hint: function(formName){
+			    Tutorial.highlight("ode-Box-content", 2);
+			},
+            hintNeeded: function(formName){
+                return true;
+            },
         },
         {
-            text: "Open the Canvas1 drawer again, and pull out the purple <b>call Canvas1.DrawLine</b> block and add it to the <b>Canvas1.Dragged</b> event handler.",
+            text: "Open the Canvas1 drawer again, and pull out the purple <b>call Canvas1.DrawLine</b> block and add it to the <b>when Canvas1.Dragged</b> event handler.",
             validate: function (formName) {
                 return Tutorial.testForBlock(formName, function(block) {
                     if (block.typeName === 'Canvas' && block.methodName === 'DrawLine') {
@@ -62,7 +113,14 @@ var Tutorial_DigitalDoodle = {
                     }
                 });
             },
-            url: '',
+            top: 1,
+            left: 521,
+			hint: function(formName){
+			    Tutorial.highlight("ode-Box-content", 2);
+			},
+            hintNeeded: function(formName){
+                return true;
+            },
         },
         {
             text: "The <b>Canvas1.Dragged</b> event will be called repeatedly very rapidly while the user drags a finger on the canvas. Each time it is called, we want to draw a small line between the previous location (<i>prevX</i>, <i>prevY</i>) of the finger to the new location (<i>currentX</i>, <i>currentY</i>).<br><br>Mouse over the parameters of the Canvas1.Dragged block to pull out and add the needed get blocks as the values of the <b>Canvas1.DrawLine</b> parameters.",
@@ -87,28 +145,50 @@ var Tutorial_DigitalDoodle = {
                     }
                 });
             },
-            url: '',
+            top: 1,
+            left: 521,
+            hint:function(formName){},
+            hintNeeded: function(formName){
+                return false;
+            },
         },
         {
             text: "It's a good habit to test your apps while you build. App Inventor lets you live-test using the Companion app on your phone (or emulator). Connect and play with your app!<br><br>If you have never connected your phone (or emulator), <a target='_blank' href='http://appinventor.mit.edu/explore/ai2/setup.html'>follow these instructions</a> and then come back to this tutorial.",
             validate: function (formName) {
                 return true;
             },
-            url: "",
+            top: 1,
+            left: 521,
+            hint:function(formName){
+                window.open("http://appinventor.mit.edu/explore/ai2/setup.html");
+            },
+            hintNeeded: function(formName){
+                return true;
+            },
         },
         {
             text: 'Drag your finger around the screen. Do you see a line?',
             validate: function (formName) {
                 return true;
             },
-            url: '',
+            top: 1,
+            left: 521,
+            hint:function(formName){},
+            hintNeeded: function(formName){
+                return false;
+            },
         },
         {
             text: 'Great work! Now try extending this app.<br><br>Here are some ideas for extending this app. You can probably think of many more! <ul><li>Change the color of the ink (and let the user pick from a selection of colors). See our <a target="_blank" href="http://appinventor.mit.edu/explore/ai2/paintpot-part1.html">Paint Pot tutorial.</a></li><li>Change the background to a photograph or picture.</li><li>Let the user draw dots as well as lines (hint: Use the <b>DrawCircle</b> block).</li><li>Add a button that turns on the camera and lets the user take a picture and then doodle on it.</li></ul>',
             validate: function (formName) {
                 return true;
             },
-            url: '',
+            top: 1,
+            left: 521,
+            hint:function(formName){},
+            hintNeeded: function(formName){
+                return false;
+            },
         }
     ]
 };

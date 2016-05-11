@@ -2336,6 +2336,7 @@ textarea::-webkit-input-placeholder {
   margin-left: 5px;
   margin-right: 5px;
   margin-top: 10px;
+  display: inline-block;
   visibility: hidden;
 }
 #closeButton{

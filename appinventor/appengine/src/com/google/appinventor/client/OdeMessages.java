@@ -649,6 +649,10 @@ public interface OdeMessages extends Messages {
   @Description("Text for back button on walkthrough dialogs")
   String walkthroughBackButton();
 
+  @DefaultMessage("Hint")
+  @Description("Text for hint button on walkthrough dialogs")
+  String walkthroughHintButton();
+
   @DefaultMessage("Oops! It looks like you have not finished this step yet. Try reading through all the instructions again " +
       "to make sure you have finished the whole step.")
   @Description("Text for instructions to keep trying in walkthrough dialogs")

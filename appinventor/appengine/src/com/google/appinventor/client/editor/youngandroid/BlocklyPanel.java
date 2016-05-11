@@ -478,6 +478,20 @@ public class BlocklyPanel extends HTMLPanel {
       doNextStep(proj_number+"_"+currentScreen);
     }
   }
+
+  public static void callHintStep(){
+    String proj_number;
+    // if there are no projects, create a new project before going to the next step
+    if (Ode.getInstance().getProjectManager().getProjects().size() == 0) {
+      Ode.getInstance().getProjectToolbar().createFirstNewProject();
+      //TODO: advance to the next step AFTER the project has been created
+    } else {
+      proj_number=BlocklyPanel.getProjectId();
+      String currentScreen = Ode.getInstance().getDesignToolbar().getCurrentProject().currentScreen;
+      doHintStep(proj_number+"_"+currentScreen);
+    }
+  }
+
   public static void callBackStep(){
     String proj_number=BlocklyPanel.getProjectId();
     String currentScreen = Ode.getInstance().getDesignToolbar().getCurrentProject().currentScreen;
@@ -1046,6 +1060,10 @@ public class BlocklyPanel extends HTMLPanel {
 
   public static native void doBackStep(String formName)/*-{
     $wnd.Tutorial.backStep(formName);
+  }-*/;
+
+  public static native void doHintStep(String formName)/*-{
+    $wnd.Tutorial.hintStep(formName);
   }-*/;
 
   public static native void doSetTutorial(String tutorialObjectName)/*-{

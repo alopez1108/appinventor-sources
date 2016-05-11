@@ -262,6 +262,16 @@ public class Walkthrough {
       }
     });
 
+    Button hintButton = new Button(MESSAGES.walkthroughHintButton());
+    hintButton.getElement().setId("hintButton");
+    hintButton.addClickHandler(new ClickHandler() {
+      @Override
+      public void onClick(ClickEvent event) {
+        OdeLog.log("hint this step");
+        BlocklyPanel.callHintStep();
+      }
+    });
+
     Button backButton = new Button(MESSAGES.walkthroughBackButton());
     backButton.getElement().setId("backButton");
     backButton.addClickHandler(new ClickHandler() {
@@ -278,6 +288,7 @@ public class Walkthrough {
     buttonPanel.setHorizontalAlignment(HorizontalPanel.ALIGN_CENTER);
     buttonPanel.add(closeButton);
     buttonPanel.add(backButton);
+    buttonPanel.add(hintButton);
     buttonPanel.add(nextButton);
 
     VerticalPanel dialogPanel = new VerticalPanel();

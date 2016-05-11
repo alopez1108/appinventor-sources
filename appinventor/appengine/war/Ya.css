@@ -2321,6 +2321,15 @@ textarea::-webkit-input-placeholder {
   margin-top: 10px;
 
 }
+#hintButton{
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 10px;
+  display: inline-block;
+  visibility: hidden;
+}
 #backButton{
   padding-right: 15px;
   padding-left: 15px;
@@ -2333,6 +2342,10 @@ textarea::-webkit-input-placeholder {
   padding-right: 15px;
   padding-left: 15px;
   margin-right: 135px;
+  margin-top: 10px;
+}
+
+#startButton{
   margin-top: 10px;
 }
 
